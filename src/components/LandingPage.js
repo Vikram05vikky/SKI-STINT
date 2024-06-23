@@ -94,7 +94,7 @@ function LandingPage() {
               <div className="inputs">
                 <div className="input-container">
                   {" "}
-                  {/* <div
+                  <div
                     className="side-tag"
                     style={{
                       backgroundColor: "#7384DE",
@@ -105,7 +105,7 @@ function LandingPage() {
                     }}
                   >
                     &nbsp;
-                  </div> */}
+                  </div>
                   <input
                     type="text"
                     id="box1"
