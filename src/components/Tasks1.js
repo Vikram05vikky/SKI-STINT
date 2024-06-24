@@ -1,15 +1,24 @@
 import "../assets/css/tasks.css";
 import { useState, useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import tasksData from "./TaskDetails.json";
-import Button from "@mui/material/Button";
+// import Dialog from "@mui/material/Dialog";
+// import DialogContent from "@mui/material/DialogContent";
+import tasksData1 from "./TaskDetails1.json";
+// import Button from "@mui/material/Button";
 import "../assets/css/TaskCard.css";
 import myimage from "../assets/img/goal.png";
 
-function Tasks({ filterType, title }) {
-  const data = tasksData;
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Button,
+} from "@mui/material";
+
+function Tasks1({ filterType, title }) {
+  const data = tasksData1;
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState(data);
@@ -47,6 +56,8 @@ function Tasks({ filterType, title }) {
       item.description.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const [logoutDialogOpen, setLogoutDialogOpen] = useState(false);
+
   const handleTaskClick = (task) => {
     setSelectedTask(task);
     setOpenDialog(true);
@@ -57,6 +68,24 @@ function Tasks({ filterType, title }) {
     setSelectedTask(null);
   };
 
+  const handleMsg = () => {
+    setLogoutDialogOpen(true);
+  };
+
+  const handleLogoutConfirm = () => {
+    console.log("Update confirmed");
+    setLogoutDialogOpen(false);
+  };
+
+  const handleLogoutCancel = () => {
+    setLogoutDialogOpen(false);
+  };
+
+  const customFunction = () => {
+    handleCloseDialog();
+    handleMsg();
+  };
+
   return (
     <>
       <div className="land-container4">
@@ -64,8 +93,9 @@ function Tasks({ filterType, title }) {
           <div
             className="search-container4"
             style={{
+              paddingLeft: "2vw",
               display: "flex",
-              width: "100%",
+              width: "60%",
               alignItems: "center",
               borderRadius: "50px",
               backgroundColor: "var(--search-nav)",
@@ -80,7 +110,7 @@ function Tasks({ filterType, title }) {
               style={{
                 flex: 1,
                 border: "none",
-                padding: "10px",
+                padding: "15px",
                 borderRadius: "50px 0 0 50px",
                 outline: "none",
               }}
@@ -91,6 +121,7 @@ function Tasks({ filterType, title }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
+                paddingRight: "2vw",
                 borderRadius: "0 50px 50px 0",
                 backgroundColor: "var(--search-nav)",
               }}
@@ -170,8 +201,18 @@ function Tasks({ filterType, title }) {
               </div>
               <div className="piththaan">
                 <div>
-                  <Button className="piththaan1" onClick={handleCloseDialog}>
-                    Done
+                  <Button className="piththaan4" onClick={customFunction}>
+                    Completed
+                  </Button>
+                </div>
+                <div>
+                  <Button className="piththaan3" onClick={customFunction}>
+                    In Progress
+                  </Button>
+                </div>
+                <div>
+                  <Button className="piththaan2" onClick={customFunction}>
+                    Yet to Start
                   </Button>
                 </div>
               </div>
@@ -179,8 +220,41 @@ function Tasks({ filterType, title }) {
           )}
         </DialogContent>
       </Dialog>
+
+      <Dialog
+        open={logoutDialogOpen}
+        onClose={handleLogoutCancel}
+        PaperProps={{
+          style: {
+            borderRadius: "1%",
+            padding: "0.1cm",
+            backgroundColor: "#cdd2ff",
+            maxWidth: "300px",
+            width: "90%",
+            margin: "auto",
+          },
+        }}
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Update Confirmation"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Task Updated Successfully
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={handleLogoutConfirm}
+            className="piththaan1"
+            style={{ width: "45%", color: "black" }}
+          >
+            DONE
+          </Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }
 
-export default Tasks;
+export default Tasks1;
