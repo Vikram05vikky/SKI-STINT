@@ -34,12 +34,8 @@ function Users() {
 
   const data = useMemo(
     () => [
-      {
-        name: "Dr.M.Mickey Mouse",
-        department: "CSE",
-        designation: "Asst.Prof",
-      },
-      { name: "Dr.B.Bugs Bunny", department: "CSE", designation: "Asst.Prof" },
+      { name: "Dr.M.Mickey Mouse", department: "CSE", designation: "HOD" },
+      { name: "Dr.B.Bugs Bunny", department: "CSE", designation: "HOD" },
       { name: "Mr.S.SpongeBob", department: "Civil", designation: "Asst.Prof" },
       { name: "Ms.D.Dora", department: "CSE", designation: "Asst.Prof" },
       {
@@ -50,8 +46,8 @@ function Users() {
       { name: "Mr.V.Tom", department: "CSE", designation: "Asst.Prof" },
       { name: "Mr.S.Jerry", department: "CSE", designation: "Asst.Prof" },
       { name: "Ms.D.Donald Duck", department: "CSE", designation: "Asst.Prof" },
-      { name: "Dr.Charlie Brown", department: "EEE", designation: "Asst.Prof" },
-      { name: "Dr.Pikachu", department: "ECE", designation: "Asst.Prof" },
+      { name: "Dr.Charlie Brown", department: "EEE", designation: "HOD" },
+      { name: "Dr.Pikachu", department: "ECE", designation: "HOD" },
       { name: "Mr.Jackie Chan", department: "CSE", designation: "Asst.Prof" },
       { name: "Mr.Shin Chan", department: "IT", designation: "Asst.Prof" },
       { name: "Mr.Motu", department: "IT", designation: "Asst.Prof" },
@@ -201,7 +197,7 @@ function Users() {
                   <KeyboardDoubleArrowRightIcon
                     style={{
                       position: "absolute",
-                      top: "0.6rem",
+                      top: "2.rem",
                       right: "0.6rem",
                     }}
                   />
