@@ -160,12 +160,6 @@ function Users() {
             <div className="sort-dropdown">
               <div
                 className="sort-menu-item"
-                onClick={() => handleSubFilterClick("All")}
-              >
-                All
-              </div>
-              <div
-                className="sort-menu-item"
                 onClick={() => handleSortOptionClick("Department")}
               >
                 Department
@@ -214,6 +208,12 @@ function Users() {
                     </div>
                   </div>
                 )}
+              </div>
+              <div
+                className="sort-menu-item"
+                onClick={() => handleSubFilterClick("All")}
+              >
+                All
               </div>
             </div>
           )}

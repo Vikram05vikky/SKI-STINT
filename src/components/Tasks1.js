@@ -93,7 +93,7 @@ function Tasks1({ filterType, title }) {
           <div
             className="search-container4"
             style={{
-              paddingLeft: "2vw",
+              // paddingLeft: "2vw",
               display: "flex",
               width: "100%",
               alignItems: "center",
@@ -110,7 +110,7 @@ function Tasks1({ filterType, title }) {
               style={{
                 flex: 1,
                 border: "none",
-                padding: "15px",
+                padding: "10px",
                 borderRadius: "50px 0 0 50px",
                 outline: "none",
               }}
@@ -121,7 +121,7 @@ function Tasks1({ filterType, title }) {
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                paddingRight: "2vw",
+                // paddingRight: "2vw",
                 borderRadius: "0 50px 50px 0",
                 backgroundColor: "var(--search-nav)",
               }}
