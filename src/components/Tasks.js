@@ -64,8 +64,9 @@ function Tasks({ filterType, title }) {
           <div
             className="search-container4"
             style={{
+              paddingLeft: "2vw",
               display: "flex",
-              width: "100%",
+              width: "60%",
               alignItems: "center",
               borderRadius: "50px",
               backgroundColor: "var(--search-nav)",
