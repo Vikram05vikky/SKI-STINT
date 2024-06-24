@@ -28,14 +28,18 @@ function Users() {
   const [sortDropdownVisible, setSortDropdownVisible] = useState(false);
   const [departmentSubMenuVisible, setDepartmentSubMenuVisible] =
     useState(false);
-  const [designationSubMenuVisible, setDesignationSubMenuVisible] =
-    useState(false);
+  // const [designationSubMenuVisible, setDesignationSubMenuVisible] =
+  //   useState(false);
   const navigate = useNavigate();
 
   const data = useMemo(
     () => [
-      { name: "Dr.M.Mickey Mouse", department: "CSE", designation: "HOD" },
-      { name: "Dr.B.Bugs Bunny", department: "CSE", designation: "HOD" },
+      {
+        name: "Dr.M.Mickey Mouse",
+        department: "CSE",
+        designation: "Asst.Prof",
+      },
+      { name: "Dr.B.Bugs Bunny", department: "CSE", designation: "Asst.Prof" },
       { name: "Mr.S.SpongeBob", department: "Civil", designation: "Asst.Prof" },
       { name: "Ms.D.Dora", department: "CSE", designation: "Asst.Prof" },
       {
@@ -46,8 +50,8 @@ function Users() {
       { name: "Mr.V.Tom", department: "CSE", designation: "Asst.Prof" },
       { name: "Mr.S.Jerry", department: "CSE", designation: "Asst.Prof" },
       { name: "Ms.D.Donald Duck", department: "CSE", designation: "Asst.Prof" },
-      { name: "Dr.Charlie Brown", department: "EEE", designation: "HOD" },
-      { name: "Dr.Pikachu", department: "ECE", designation: "HOD" },
+      { name: "Dr.Charlie Brown", department: "EEE", designation: "Asst.Prof" },
+      { name: "Dr.Pikachu", department: "ECE", designation: "Asst.Prof" },
       { name: "Mr.Jackie Chan", department: "CSE", designation: "Asst.Prof" },
       { name: "Mr.Shin Chan", department: "IT", designation: "Asst.Prof" },
       { name: "Mr.Motu", department: "IT", designation: "Asst.Prof" },
@@ -84,7 +88,7 @@ function Users() {
   };
 
   const getTitle = () => {
-    if (!filter.type) {
+    if (filter.type === "All") {
       return "All Users";
     }
     if (filter.type === "designation") {
@@ -117,19 +121,16 @@ function Users() {
     setSortDropdownVisible(!sortDropdownVisible);
 
     setDepartmentSubMenuVisible(false);
-    setDesignationSubMenuVisible(false);
+    // setDesignationSubMenuVisible(false);
   };
 
   const handleSortOptionClick = (option) => {
-    if (option === "Designation") {
-      setDesignationSubMenuVisible(!designationSubMenuVisible);
-      setDepartmentSubMenuVisible(false);
-    } else if (option === "Department") {
+    if (option === "Department") {
       setDepartmentSubMenuVisible(!departmentSubMenuVisible);
-      setDesignationSubMenuVisible(false);
+      // setDesignationSubMenuVisible(false);
     } else {
       setDepartmentSubMenuVisible(false);
-      setDesignationSubMenuVisible(false);
+      // setDesignationSubMenuVisible(false);
     }
   };
 
@@ -157,37 +158,12 @@ function Users() {
           </button>
           {sortDropdownVisible && (
             <div className="sort-dropdown">
-              {/* <div
+              <div
                 className="sort-menu-item"
-                onClick={() => handleSortOptionClick("Designation")}
+                onClick={() => handleSubFilterClick("All")}
               >
-                Designation
-                {designationSubMenuVisible && (
-                  <KeyboardDoubleArrowRightIcon
-                    style={{
-                      position: "absolute",
-                      top: "0.7rem",
-                      right: "0.6rem",
-                    }}
-                  />
-                )}
-                {designationSubMenuVisible && (
-                  <div className="submenu">
-                    <div
-                      onClick={() => handleSubFilterClick("designation", "HOD")}
-                    >
-                      HOD
-                    </div>
-                    <div
-                      onClick={() =>
-                        handleSubFilterClick("designation", "Asst.Prof")
-                      }
-                    >
-                      Asst.Prof
-                    </div>
-                  </div>
-                )}
-              </div> */}
+                All
+              </div>
               <div
                 className="sort-menu-item"
                 onClick={() => handleSortOptionClick("Department")}

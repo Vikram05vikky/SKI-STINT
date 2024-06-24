@@ -9,7 +9,7 @@ import NotStartedIcon from "@mui/icons-material/NotStarted";
 import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonIcon from "@mui/icons-material/Person";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ListAltIcon from "@mui/icons-material/ListAlt";
 import namelogo from "../assets/img/namelogo.png";
 import "../assets/css/sidebar.css";
 import "../App.css";
@@ -104,7 +104,7 @@ function Sidebar() {
               <span className="text nav-text">Home</span>
             </li>
             <li className="nav-link" onClick={toggleProfileExpand1}>
-              <AccountCircleIcon className="icon" />
+              <ListAltIcon className="icon" />
               <span className="text nav-text">My Tasks</span>
               <KeyboardArrowDownIcon
                 style={{
