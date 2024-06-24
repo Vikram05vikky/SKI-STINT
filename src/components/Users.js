@@ -1,11 +1,10 @@
 import React, { useState, useContext, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
-import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
-import { SidebarContext } from './Sidebar';
+import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { SidebarContext } from "./Sidebar";
 import "../assets/css/users.css";
-
 
 import tom from "../assets/img/tom1.png";
 import patlu from "../assets/img/patlu.png";
@@ -27,26 +26,39 @@ function Users() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [sortDropdownVisible, setSortDropdownVisible] = useState(false);
-  const [departmentSubMenuVisible, setDepartmentSubMenuVisible] = useState(false);
-  const [designationSubMenuVisible, setDesignationSubMenuVisible] = useState(false);
+  const [departmentSubMenuVisible, setDepartmentSubMenuVisible] =
+    useState(false);
+  const [designationSubMenuVisible, setDesignationSubMenuVisible] =
+    useState(false);
   const navigate = useNavigate();
 
-  const data = useMemo(() => [
-    { name: "Dr.M.Mickey Mouse", department: "CSE", designation: "HOD"},
-    { name: "Dr.B.Bugs Bunny", department: "CSE", designation: "HOD" },
-    { name: "Mr.S.SpongeBob", department: "Civil", designation: "Asst.Prof" },
-    { name: "Ms.D.Dora", department: "CSE", designation: "Asst.Prof" },
-    { name: "Ms.S.D.Scooby-Doo", department: "Mech", designation: "Asst.Prof" },
-    { name: "Mr.V.Tom", department: "CSE", designation: "Asst.Prof" },
-    { name: "Mr.S.Jerry", department: "CSE", designation: "Asst.Prof" },
-    { name: "Ms.D.Donald Duck", department: "CSE", designation: "Asst.Prof" },
-    { name: "Dr.Charlie Brown", department: "EEE", designation: "HOD" },
-    { name: "Dr.Pikachu", department: "ECE", designation: "HOD" },
-    { name: "Mr.Jackie Chan", department: "CSE", designation: "Asst.Prof" },
-    { name: "Mr.Shin Chan", department: "IT", designation: "Asst.Prof" },
-    { name: "Mr.Motu", department: "IT", designation: "Asst.Prof" },
-    { name: "Mr.Patlu", department: "IT", designation: "Asst.Prof" },
-  ], []);
+  const data = useMemo(
+    () => [
+      {
+        name: "Dr.M.Mickey Mouse",
+        department: "CSE",
+        designation: "Asst.Prof",
+      },
+      { name: "Dr.B.Bugs Bunny", department: "CSE", designation: "Asst.Prof" },
+      { name: "Mr.S.SpongeBob", department: "Civil", designation: "Asst.Prof" },
+      { name: "Ms.D.Dora", department: "CSE", designation: "Asst.Prof" },
+      {
+        name: "Ms.S.D.Scooby-Doo",
+        department: "Mech",
+        designation: "Asst.Prof",
+      },
+      { name: "Mr.V.Tom", department: "CSE", designation: "Asst.Prof" },
+      { name: "Mr.S.Jerry", department: "CSE", designation: "Asst.Prof" },
+      { name: "Ms.D.Donald Duck", department: "CSE", designation: "Asst.Prof" },
+      { name: "Dr.Charlie Brown", department: "EEE", designation: "Asst.Prof" },
+      { name: "Dr.Pikachu", department: "ECE", designation: "Asst.Prof" },
+      { name: "Mr.Jackie Chan", department: "CSE", designation: "Asst.Prof" },
+      { name: "Mr.Shin Chan", department: "IT", designation: "Asst.Prof" },
+      { name: "Mr.Motu", department: "IT", designation: "Asst.Prof" },
+      { name: "Mr.Patlu", department: "IT", designation: "Asst.Prof" },
+    ],
+    []
+  );
 
   useEffect(() => {
     let newData = [...data];
@@ -113,12 +125,12 @@ function Users() {
   };
 
   const handleSortOptionClick = (option) => {
-    if (option === 'Designation') {
+    if (option === "Designation") {
       setDesignationSubMenuVisible(!designationSubMenuVisible);
-      setDepartmentSubMenuVisible(false); 
-    } else if (option === 'Department') {
+      setDepartmentSubMenuVisible(false);
+    } else if (option === "Department") {
       setDepartmentSubMenuVisible(!departmentSubMenuVisible);
-      setDesignationSubMenuVisible(false); 
+      setDesignationSubMenuVisible(false);
     } else {
       setDepartmentSubMenuVisible(false);
       setDesignationSubMenuVisible(false);
@@ -149,55 +161,83 @@ function Users() {
           </button>
           {sortDropdownVisible && (
             <div className="sort-dropdown">
-              <div
+              {/* <div
                 className="sort-menu-item"
-                onClick={() => handleSortOptionClick('Designation')}
+                onClick={() => handleSortOptionClick("Designation")}
               >
                 Designation
                 {designationSubMenuVisible && (
                   <KeyboardDoubleArrowRightIcon
-                    style={{ position: "absolute", top: "0.7rem", right: "0.6rem" }}
+                    style={{
+                      position: "absolute",
+                      top: "0.7rem",
+                      right: "0.6rem",
+                    }}
                   />
                 )}
                 {designationSubMenuVisible && (
                   <div className="submenu">
-                    <div onClick={() => handleSubFilterClick('designation', 'HOD')}>
+                    <div
+                      onClick={() => handleSubFilterClick("designation", "HOD")}
+                    >
                       HOD
                     </div>
-                    <div onClick={() => handleSubFilterClick('designation', 'Asst.Prof')}>
+                    <div
+                      onClick={() =>
+                        handleSubFilterClick("designation", "Asst.Prof")
+                      }
+                    >
                       Asst.Prof
                     </div>
                   </div>
                 )}
-              </div>
+              </div> */}
               <div
                 className="sort-menu-item"
-                onClick={() => handleSortOptionClick('Department')}
+                onClick={() => handleSortOptionClick("Department")}
               >
                 Department
                 {departmentSubMenuVisible && (
                   <KeyboardDoubleArrowRightIcon
-                    style={{ position: "absolute", top: "2.7rem", right: "0.6rem" }}
+                    style={{
+                      position: "absolute",
+                      top: "0.6rem",
+                      right: "0.6rem",
+                    }}
                   />
                 )}
                 {departmentSubMenuVisible && (
                   <div className="submenu">
-                    <div onClick={() => handleSubFilterClick('department', 'CSE')}>
+                    <div
+                      onClick={() => handleSubFilterClick("department", "CSE")}
+                    >
                       CSE
                     </div>
-                    <div onClick={() => handleSubFilterClick('department', 'IT')}>
+                    <div
+                      onClick={() => handleSubFilterClick("department", "IT")}
+                    >
                       IT
                     </div>
-                    <div onClick={() => handleSubFilterClick('department', 'ECE')}>
+                    <div
+                      onClick={() => handleSubFilterClick("department", "ECE")}
+                    >
                       ECE
                     </div>
-                    <div onClick={() => handleSubFilterClick('department', 'EEE')}>
+                    <div
+                      onClick={() => handleSubFilterClick("department", "EEE")}
+                    >
                       EEE
                     </div>
-                    <div onClick={() => handleSubFilterClick('department', 'Civil')}>
+                    <div
+                      onClick={() =>
+                        handleSubFilterClick("department", "Civil")
+                      }
+                    >
                       Civil
                     </div>
-                    <div onClick={() => handleSubFilterClick('department', 'Mech')}>
+                    <div
+                      onClick={() => handleSubFilterClick("department", "Mech")}
+                    >
                       Mech
                     </div>
                   </div>
@@ -225,17 +265,25 @@ function Users() {
                         style={{
                           width: "40px",
                           height: "40px",
-                          borderRadius: "50%"
+                          borderRadius: "50%",
                         }}
                       />
                     </div>
 
                     <div className="det1-btn1">
                       <div className="det1">
-                        <h3 style={{ fontWeight: "500", color: "var(--user-text)" }}>
+                        <h3
+                          style={{
+                            fontWeight: "500",
+                            color: "var(--user-text)",
+                          }}
+                        >
                           {item.name}
                         </h3>
-                        <p className="user-des" style={{ color: "var(--user-text)" }}>
+                        <p
+                          className="user-des"
+                          style={{ color: "var(--user-text)" }}
+                        >
                           Designation: {item.designation}
                         </p>
                       </div>

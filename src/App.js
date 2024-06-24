@@ -42,7 +42,7 @@ export default function App() {
                   path="/completedtasks1"
                   element={<Task1 filterType="completed" />}
                 />
-                <Route path="/yettasks1" element={<Task filterType="yet" />} />
+                <Route path="/yettasks1" element={<Task1 filterType="yet" />} />
 
                 {/*Routes for My Profile*/}
 

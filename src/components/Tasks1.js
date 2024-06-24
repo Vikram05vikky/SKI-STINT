@@ -95,7 +95,7 @@ function Tasks1({ filterType, title }) {
             style={{
               paddingLeft: "2vw",
               display: "flex",
-              width: "60%",
+              width: "100%",
               alignItems: "center",
               borderRadius: "50px",
               backgroundColor: "var(--search-nav)",
@@ -249,7 +249,7 @@ function Tasks1({ filterType, title }) {
             className="piththaan1"
             style={{ width: "45%", color: "black" }}
           >
-            DONE
+            Done
           </Button>
         </DialogActions>
       </Dialog>

@@ -66,7 +66,7 @@ function Tasks({ filterType, title }) {
             style={{
               paddingLeft: "2vw",
               display: "flex",
-              width: "60%",
+              width: "100%",
               alignItems: "center",
               borderRadius: "50px",
               backgroundColor: "var(--search-nav)",
